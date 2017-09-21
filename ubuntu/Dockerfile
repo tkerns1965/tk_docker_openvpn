@@ -14,6 +14,7 @@ RUN apt update \
         && ./clean-all \
         && ./build-ca --batch \
         && ./build-key-server --batch server \
+        && ./build-key --batch client1 \
         && ./build-dh \
-        && cp ca.crt dh2048.pem server.crt server.key /etc/openvpn/ \
-        && ./build-key --batch client1
+        && cd keys/ \
+        && cp ca.crt dh2048.pem server.crt server.key /etc/openvpn/

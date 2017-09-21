@@ -6,4 +6,4 @@ services:
     image: img_tkdovpn_ubuntu
     container_name: cnt_tkdovpn_ubuntu
     stdin_open: true
-    tty:: true
+    tty: true

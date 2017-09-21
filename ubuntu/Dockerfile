@@ -17,8 +17,9 @@ RUN apt update \
         && ./build-dh
 
 RUN cd /etc/openvpn/easy-rsa/keys/ \
-        && cp ca.crt dh2048.pem server.crt server.key /etc/openvpn/ \
-        && cd / \
+        && cp ca.crt dh2048.pem server.crt server.key /etc/openvpn/
+
+RUN cd / \
         && cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ \
         && gzip -d /etc/openvpn/server.conf.gz \
         && sed -i 's/\#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \

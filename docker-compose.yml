@@ -15,9 +15,9 @@ services:
     build: client
     image: img_tkdovpn_client
     container_name: cnt_tkdovpn_client
+    privileged: true
     stdin_open: true
     tty: true
-    # privileged: true
     # volumes:
       # - vol_tkdovpn_shared:/tkdovpn/shared
     # depends_on:

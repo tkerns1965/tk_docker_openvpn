@@ -23,5 +23,6 @@ RUN apt update \
         && sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \
         && sysctl -p /etc/sysctl.conf
 
-#        && systemctl start openvpn@server \
-#        && systemctl status openvpn@server
+EXPOSE 1194/udp
+
+ENTRYPOINT ["openvpn", "--cd", "/etc/openvpn/", "--config", "server.conf"]

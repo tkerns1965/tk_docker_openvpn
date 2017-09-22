@@ -12,7 +12,7 @@ RUN apt update \
         && sed -i 's/export KEY_NAME="EasyRSA"/export KEY_NAME="CWHvpn"/' vars \
         && . ./vars \
         && ./clean-all \
-        && ./build-req --batch client1 
-#        && cp /etc/openvpn/easy-rsa/keys/client1.csr /tkdovpn/shared/
+        && ./build-req --batch client1 \
+        && cp /etc/openvpn/easy-rsa/keys/client1.csr /tkdovpn/shared/
 
 # ENTRYPOINT ["openvpn", "--cd", "/etc/openvpn/", "--config", "server.conf"]

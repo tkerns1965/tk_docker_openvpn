@@ -15,4 +15,9 @@ docker exec cnt_tkdovpn_client bash \
         -c "chown 0:0 /etc/openvpn/easy-rsa/keys/ca.crt \
         && chown 0:0 /etc/openvpn/easy-rsa/keys/client1.crt \
         && cd /etc/openvpn/easy-rsa/keys/ \
-        && cp ca.crt client1.crt client1.key /etc/openvpn/"
+        && cp ca.crt client1.crt client1.key /etc/openvpn/ \
+        && cd /etc/openvpn/ \
+        && mv client1.crt client.crt \
+        && mv client1.key client.key \
+        && cd / \
+        && openvpn --cd /etc/openvpn/ --config client.conf"

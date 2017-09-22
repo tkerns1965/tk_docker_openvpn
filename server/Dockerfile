@@ -15,7 +15,7 @@ RUN apt update \
         && ./build-ca --batch \
         && ./build-key-server --batch server \
         && ./build-dh \
-        && cd /etc/openvpn/easy-rsa/keys/ \
+        && cd ./keys/ \
         && cp ca.crt dh2048.pem server.crt server.key /etc/openvpn/ \
         && cd / \
         && cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ \

@@ -8,20 +8,20 @@ services:
     privileged: true
     # stdin_open: true
     # tty: true
-    volumes:
-      - vol_tkdovpn_shared:/tkdovpn/shared
+    # volumes:
+      # - vol_tkdovpn_shared:/tkdovpn/shared
 
   client:
     build: client
     image: img_tkdovpn_client
     container_name: cnt_tkdovpn_client
+    stdin_open: true
+    tty: true
     # privileged: true
-    # stdin_open: true
-    # tty: true
-    volumes:
-      - vol_tkdovpn_shared:/tkdovpn/shared
-    depends_on:
-      - server
+    # volumes:
+      # - vol_tkdovpn_shared:/tkdovpn/shared
+    # depends_on:
+      # - server
 
-volumes:
-  vol_tkdovpn_shared:
+# volumes:
+  # vol_tkdovpn_shared:

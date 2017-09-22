@@ -10,7 +10,7 @@ RUN apt update \
         && sed -i 's/export KEY_EMAIL="me@myhost.mydomain"/export KEY_EMAIL="tkerns@cwilliwmhetzer.com"/' vars \
         && sed -i 's/export KEY_OU="MyOrganizationalUnit"/export KEY_OU="CWHvpn"/' vars \
         && sed -i 's/export KEY_NAME="EasyRSA"/export KEY_NAME="CWHvpn"/' vars \
-        && . ./vars \
+        && source ./vars \
         && ./clean-all \
         && ./build-ca --batch \
         && ./build-key-server --batch server \

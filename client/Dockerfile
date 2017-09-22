@@ -10,10 +10,10 @@ RUN apt update \
         && sed -i 's/export KEY_EMAIL="me@myhost.mydomain"/export KEY_EMAIL="tkerns@cwilliwmhetzer.com"/' vars \
         && sed -i 's/export KEY_OU="MyOrganizationalUnit"/export KEY_OU="CWHvpn"/' vars \
         && sed -i 's/export KEY_NAME="EasyRSA"/export KEY_NAME="CWHvpn"/' vars \
-        && . ./vars \
+        && source ./vars \
         && ./clean-all \
-        && ./build-req --batch client1
-
-# cp /etc/openvpn/easy-rsa/keys/client1.csr /tkdovpn/shared/
+        && ./build-req --batch client1 \
+        && cd / \
+        && cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/
 
 # ENTRYPOINT ["openvpn", "--cd", "/etc/openvpn/", "--config", "server.conf"]

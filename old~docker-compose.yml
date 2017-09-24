@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  server:
+    build: server
+    image: img_tkdovpn_server
+    container_name: cnt_tkdovpn_server
+    privileged: true
+    # stdin_open: true
+    # tty: true
+    # volumes:
+      # - vol_tkdovpn_shared:/tkdovpn/shared
+
+  client:
+    build: client
+    image: img_tkdovpn_client
+    container_name: cnt_tkdovpn_client
+    privileged: true
+    stdin_open: true
+    tty: true
+    # volumes:
+      # - vol_tkdovpn_shared:/tkdovpn/shared
+    # depends_on:
+      # - server
+
+# volumes:
+  # vol_tkdovpn_shared:

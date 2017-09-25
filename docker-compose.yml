@@ -13,8 +13,8 @@ services:
     privileged: true
     # stdin_open: true
     # tty: true
-    # volumes:
-      # - vol_tkdovpn_shared:/tkdovpn/shared
+    volumes:
+      - vol_tkdovpn_certs:/tkdovpn/certs
     depends_on:
       - base
 
@@ -25,11 +25,11 @@ services:
     privileged: true
     # stdin_open: true
     # tty: true
-    # volumes:
-      # - vol_tkdovpn_shared:/tkdovpn/shared
+    volumes:
+      - vol_tkdovpn_certs:/tkdovpn/certs
     depends_on:
       - base
       - server
 
-# volumes:
-  # vol_tkdovpn_shared:
+volumes:
+  vol_tkdovpn_certs:

@@ -11,3 +11,4 @@ cd /etc/openvpn/easy-rsa/
 . ./vars
 ./clean-all
 ./build-req --batch $CLIENT_NAME
+cp ./keys/$CLIENT_NAME.csr /tkdovpn/certs/

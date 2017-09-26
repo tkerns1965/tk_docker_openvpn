@@ -8,5 +8,4 @@ if [ -z "$CLIENT_NAME" ]; then
 fi
 
 docker run --name cnt_tkdovpn_server1 -d -p 1194:1194/udp --cap-add=NET_ADMIN --device=/dev/net/tun img_tkdovpn_server1
-# docker run --name cnt_tkdovpn_$CLIENT_NAME -d --cap-add=NET_ADMIN --device=/dev/net/tun img_tkdovpn_$CLIENT_NAME
-docker run --name cnt_tkdovpn_$CLIENT_NAME -d --device=/dev/net/tun img_tkdovpn_$CLIENT_NAME
+docker run --name cnt_tkdovpn_$CLIENT_NAME -d --cap-add=NET_ADMIN --device=/dev/net/tun img_tkdovpn_$CLIENT_NAME

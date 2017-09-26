@@ -1,4 +1,4 @@
-FROM base
+FROM img_tkdovpn_base:latest
 
 COPY sign_client_csr.sh .
 

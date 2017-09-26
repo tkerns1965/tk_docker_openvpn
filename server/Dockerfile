@@ -1,6 +1,9 @@
-FROM ubuntu:16.04
+FROM base
 
-RUN cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ \
+COPY sign_client_csr.sh .
+
+RUN chmod u+x sign_client_csr.sh \
+        && cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/ \
         && gzip -d /etc/openvpn/server.conf.gz \
         && sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \
         && sysctl -p /etc/sysctl.conf \

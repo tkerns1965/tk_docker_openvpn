@@ -14,7 +14,7 @@ docker rm cnt_tkdovpn_client_tmp
 
 docker run --name cnt_tkdovpn_server_tmp -v vol_tkdovpn_certs:/tkdovpn/certs \
   img_tkdovpn_server ./sign_client_csr.sh $CLIENT_NAME
-docker commit --change "ENTRYPOINT ['openvpn', '--cd', '/etc/openvpn/', '--config', 'server.conf']" \
+docker commit --change "CMD ['openvpn', '--cd', '/etc/openvpn/', '--config', 'server.conf']" \
   --change "EXPOSE 1194/udp" cnt_tkdovpn_server_tmp img_tkdovpn_server1
 docker rm cnt_tkdovpn_server_tmp
 

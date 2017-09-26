@@ -7,5 +7,5 @@ if [ -z "$CLIENT_NAME" ]; then
   exit 1
 fi
 
-docker run img_tkdovpn_server
+docker run -d img_tkdovpn_server1
 docker run img_tkdovpn_$CLIENT_NAME

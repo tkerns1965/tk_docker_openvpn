@@ -5,7 +5,7 @@ docker cp client1.csr cnt_tkdovpn_server:/etc/openvpn/easy-rsa/keys/
 docker exec cnt_tkdovpn_server bash \
         -c "chown 0:0 /etc/openvpn/easy-rsa/keys/client1.csr \
         && cd /etc/openvpn/easy-rsa/ \
-        && source ./vars \
+        && . ./vars \
         && ./sign-req --batch client1"
 docker cp cnt_tkdovpn_server:/etc/openvpn/easy-rsa/keys/ca.crt .
 docker cp cnt_tkdovpn_server:/etc/openvpn/easy-rsa/keys/client1.crt .

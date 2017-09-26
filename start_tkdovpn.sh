@@ -7,5 +7,5 @@ if [ -z "$CLIENT_NAME" ]; then
   exit 1
 fi
 
-docker run -d -p 1194:1194/udp --cap-add=NET_ADMIN img_tkdovpn_server1
+docker run --name cnt_tkdovpn_server1 -d -p 1194:1194/udp --cap-add=NET_ADMIN img_tkdovpn_server1
 # docker run img_tkdovpn_$CLIENT_NAME

@@ -15,7 +15,3 @@ RUN chmod u+x sign_client_csr.sh \
         && ./build-dh \
         && cd ./keys/ \
         && cp ca.crt dh2048.pem server.crt server.key /etc/openvpn/
-
-EXPOSE 1194/udp
-
-ENTRYPOINT ["openvpn", "--cd", "/etc/openvpn/", "--config", "server.conf"]

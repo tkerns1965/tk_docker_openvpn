@@ -24,3 +24,4 @@ docker commit -c 'ENTRYPOINT ["openvpn", "--cd", "/etc/openvpn/", "--config", "c
   cnt_tkdovpn_client_tmp img_tkdovpn_$CLIENT_NAME
 docker rm cnt_tkdovpn_client_tmp
 docker rmi img_tkdovpn_client_tmp
+docker volume rm vol_tkdovpn_certs

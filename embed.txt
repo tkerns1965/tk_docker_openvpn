@@ -1,0 +1,25 @@
+http://blog.ssdnodes.com/blog/tutorial-installing-openvpn-on-ubuntu-16.04
+
+cat base.conf \
+<(echo -e '<ca>') ~/openvpn-ca/keys/ca.crt <(echo -e '</ca>') \
+<(echo -e '<cert>') ~/openvpn-ca/keys/client1.crt <(echo -e '</cert>\n') \
+<(echo -e '<key>') ~/openvpn-ca/keys/client1.key <(echo -e '</key>\n') \
+<(echo -e '<tls-auth>') ~/openvpn-ca/keys/ta.key <(echo -e '</tls-auth>') \
+>> client1.ovpn
+
+ssh USER@SERVER-IP "cat ~/openvpn-clients/client1.ovpn" > client1.ovpn
+
+
+https://www.digitalocean.com/community/tutorials/how-to-configure-and-connect-to-a-private-openvpn-server-on-freebsd-10-1
+
+echo "Enter clientName:" \
+&& set CLIENTNAME = $< \
+&& printf "\n<ca>\n" >> ./client.conf \
+&& cat ./ca.crt >> ./client.conf \
+&& printf "</ca>\n" >> ./client.conf \
+&& printf "\n<cert>" >> ./client.conf \
+&& grep -v '^ ' ./$CLIENTNAME.crt | grep -v 'Certificate' >> ./client.conf \
+&& printf "</cert>\n" >> ./client.conf \
+&& printf "\n<key>\n" >> ./client.conf \
+&& cat ./$CLIENTNAME.key >> ./client.conf \
+&& printf "</key>\n" >> ./client.conf

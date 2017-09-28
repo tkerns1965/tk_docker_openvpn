@@ -1,0 +1,10 @@
+FROM ubuntu:16.04
+
+RUN apt update \
+        && apt install -y wget \
+        && wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.3/EasyRSA-3.0.3.tgz \
+        && tar zxvf EasyRSA-3.0.3.tgz --transform 's!^EasyRSA-3.0.3!etc/easyrsa303!' \
+        && cd /etc/easyrsa303/
+# \
+#       && ./easyrsa init-pki \
+#       && ./easyrsa build-ca
